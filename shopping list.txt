@@ -1,0 +1,14 @@
+try:
+    with open("shopping list.txt", "x") as file:
+        print("new shopping list created!")
+
+except FileExistsError:
+    print("shopping list loaded.")
+
+while True:
+    print("\nshopping list")
+    print("1. add item to list")
+    print("2. view shopping list")
+    print("3. clear shopping list")
+    print("4. exit list")
+    choice=input("enter choice: ")
