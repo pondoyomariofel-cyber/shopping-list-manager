@@ -49,3 +49,32 @@ def main():
             if not shopping_list:
                 print("Nothing to remove.")
                 continue
+                
+            try:
+                for i, itm in enumerate(shopping_list, 1):
+                    print(f"{i}. {itm['name']} - Quantity: {itm['quantity']}")
+
+                index = int(input("Enter the number of the item to remove: "))
+                removed = shopping_list.pop(index - 1)
+
+                print(f"'{removed['name']}' has been removed.")
+
+            except (ValueError, IndexError):
+                print("Invalid selection. Please enter a valid number from the list.")
+
+        elif choice == '4':
+            confirm = input("Are you sure you want to clear everything? (yes/no): ")
+
+            if confirm.lower() == 'yes':
+                shopping_list.clear()
+                print("List cleared.")
+
+        elif choice == '5':
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    main()
